@@ -1,0 +1,99 @@
+.bot:not([data-hidden="false"]) {
+  display: none !important;
+}
+
+[data-hidden="true"] {
+  display: none !important;
+}
+
+.bot-avatar {
+  position: relative;
+  min-width: 60px;
+  min-height: 60px;
+  width: 60px;
+  height: 60px;
+  border: solid 1px #000;
+  margin-right: 22px;
+}
+
+.bot-avatar > div {
+  background-image: url(./turing.jpeg);
+  width: 100%;
+  height: 100%;
+  background-size: 125%;
+  background-position-x: center;
+}
+
+.bot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: min(100vw, 500px);
+  background-color: #fff;
+  box-shadow: #000 5px 5px 10px 5px;
+  z-index: 999;
+  color: #000;
+  border-radius: 15px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.bot-content p {
+  margin: 0;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.bot-avatar::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border: solid 10px transparent;
+  border-left-color: black;
+  display: block;
+  position: absolute;
+  right: -20px;
+  top: 49%;
+  transform: translateY(-50%);
+}
+
+.bot-button {
+  appearance: none;
+  border: none;
+  border-bottom: solid 5px #007250;
+  background-color: var(--prim);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 0.25rem;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.bot-button:hover {
+  background-color: #006144;
+}
+
+.bot-button:active {
+  background-color: #006144;
+  transform: translateY(3px);
+}
+
+.bot.bot-right {
+  right: 0;
+  left: unset;
+  flex-direction: row-reverse;
+}
+
+.bot.bot-right .bot-avatar {
+  margin-right: 0;
+  margin-left: 22px;
+}
+
+.bot.bot-right .bot-avatar::before {
+  border-left-color: transparent;
+  border-right-color: black;
+  right: unset;
+  left: -20px;
+}
