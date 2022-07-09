@@ -41,9 +41,9 @@ function* withLast(iterable) {
 // BOT UTILITY FUNCTIONS
 ////////////////////////////////////////////////////////////////////////////////
 
-function genButton(bot, nextBotFn) {
+function genButton(bot, text, nextBotFn) {
   const button = document.createElement("button");
-  button.textContent = "Próximo";
+  button.textContent = text;
   button.classList.add("bot-button");
   button.addEventListener("click", nextBotFn);
   bot.appendChild(button);
@@ -65,6 +65,7 @@ for (const [i, [isLastBot, { curr: bot, next }]] of enumerate(
 )) {
   bot.dataset.index = i;
   bot.dataset.hidden = !(i === 0);
+  const nextBtnText = bot.dataset.next || "Próximo";
 
   const avatarWrapper = bot.querySelector(".bot-avatar");
   genAvatar(avatarWrapper);
@@ -77,7 +78,7 @@ for (const [i, [isLastBot, { curr: bot, next }]] of enumerate(
   ] of enumerate(withLast(withNext(children)))) {
     child.dataset.hidden = !(i === 0);
 
-    genButton(child, function (event) {
+    genButton(child, nextBtnText, function () {
       confetti();
 
       if (isLastChildren) {

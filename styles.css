@@ -1,5 +1,6 @@
 :root {
-  --prim: #00835c;
+  --prim: #008184;
+  --prim-darker: #01696b;
   --prim-light: #dbfff4;
 }
 
@@ -242,4 +243,19 @@ footer {
   min-width: 700px;
   max-width: 90vw;
   height: 400px;
+}
+
+/******************************************************************************\
+|* NEW
+\******************************************************************************/
+
+.dest-vid {
+  display: flex;
+  justify-content: center;
+}
+
+.dest-vid iframe {
+  width: 700px;
+  max-width: 95vw;
+  height: 325px;
 }
